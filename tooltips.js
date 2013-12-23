@@ -111,7 +111,6 @@ var Tooltips = {
 
 					if(tip_y < 0){ // make sure it doesn't hit the top of the window
 						$tip.addClass('inverted');
-						//tip_y = tip_y + height + $el.outerHeight(); // move below link
 						if( Tooltips.position == 'top' ){
 							tip_y = link_top + link_height + Tooltips.additional;
 						} else {
@@ -124,9 +123,12 @@ var Tooltips = {
 					if(tip_x < 0){ // make sure it doesn't hit the left side of the window
 						tip_x = 0; // put at the left of the window
 					} else if(screencheck > window_width){  // make sure it doesn't hit the right side of the window
-						//tip_x = window_width - width; // put on right edge of screen
-						tip_x = link_left - width - Tooltips.additional; // move to left of link
 						$tip.addClass('reversed');
+						if( Tooltips.position == 'top' ){
+							tip_x = window_width - width - Tooltips.additional; // put on right edge of screen
+						} else {
+							tip_x = link_left - width - Tooltips.additional; // move to left of link
+						}
 					}
 
 					$tip.css('left', tip_x);
