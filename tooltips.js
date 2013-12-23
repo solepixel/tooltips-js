@@ -43,7 +43,6 @@ var Tooltips = {
 				if($tip.length > 0){
 					$tip.removeClass('hidden'); // we only needed this if JS is off
 					$tip.hide();
-					// let's make sure it's just inside the body tag
 					$('body').append($tip);
 				}
 			} else {
