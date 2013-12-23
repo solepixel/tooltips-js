@@ -2,7 +2,7 @@
  * Project: Tooltips
  * Author: Brian DiChiara
  * Website: http://www.briandichiara.com/
- * Version: 1.2
+ * Version: 2.0
  * Description: Displays a tooltip bubble near a link referencing a hidden div.
  */
 
@@ -13,6 +13,7 @@ var Tooltips = {
 	additional : 10,
 	close_button : false,
 	close_button_html : 'x',
+	position: 'right',
 
 	init : function(){
 
@@ -20,17 +21,16 @@ var Tooltips = {
 
 		$.each($els, function(i, el){
 			var $el = $(el);
-			//$el.click(function(e){ return false; });
+			var use_rel, href, timeout, $tip, id;
 
 			if($el.attr('rel')){
-				var use_rel = true;
-				var href = $el.attr('rel');
+				use_rel = true;
+				href = $el.attr('rel');
 			} else {
-				var use_rel = false;
-				var href = $el.attr('href');
+				use_rel = false;
+				href = $el.attr('href');
 			}
 
-			var timeout;
 			var index = href.indexOf('#');
 
 			if(index > -1 || use_rel){
@@ -39,7 +39,7 @@ var Tooltips = {
 				} else if(index > 0){
 					href = href.substring(index, href.length);
 				}
-				var $tip = $(href);
+				$tip = $(href);
 				if($tip.length > 0){
 					$tip.removeClass('hidden'); // we only needed this if JS is off
 					$tip.hide();
@@ -47,8 +47,8 @@ var Tooltips = {
 					$('body').append($tip);
 				}
 			} else {
-				var $tip = $('<div class="tooltip-content" />');
-				var id = 'ajax-tooltip-'+i;
+				$tip = $('<div class="tooltip-content" />');
+				id = 'ajax-tooltip-'+i;
 				$tip.attr('id', id);
 				$tip.hide();
 				var response = $.ajax({
@@ -100,14 +100,24 @@ var Tooltips = {
 					var link_width = $el.outerWidth();
 					var link_height = $el.outerHeight();
 
-					//var tip_x = link_left - Math.round(width/2) + Tooltips.additional; // centered over link
-					var tip_x = link_left + link_width + Tooltips.additional; // position to the right of the link w/a little space
-					var tip_y = link_top - Math.floor(height/2); // vertical center
+					var tip_x, tip_y;
+
+					if( Tooltips.position == 'top' ){
+						tip_x = link_left + Math.round(link_width/2) - Math.round(width/2); // centered over link
+						tip_y = link_top - height - Tooltips.additional;
+					} else {
+						tip_x = link_left + link_width + Tooltips.additional; // position to the right of the link w/a little space
+						tip_y = link_top - Math.floor(height/2); // vertical center
+					}
 
 					if(tip_y < 0){ // make sure it doesn't hit the top of the window
 						$tip.addClass('inverted');
 						//tip_y = tip_y + height + $el.outerHeight(); // move below link
-						tip_y = 0; // put at the top of the window
+						if( Tooltips.position == 'top' ){
+							tip_y = link_top + link_height + Tooltips.additional;
+						} else {
+							tip_y = 0; // put at the top of the window
+						}
 					}
 
 					var screencheck = tip_x + width;
@@ -132,4 +142,4 @@ var Tooltips = {
 			}
 		});
 	}
-}
+};
