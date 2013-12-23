@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<meta name="author" content="Brian DiChiara" />
+
+	<title>Tooltip</title>
+	<style type="text/css">
+		/* basic demo styles */
+		* { margin:0; padding:0; }
+		body { padding:25px; font-family:Arial; font-size:12px; background:#EEE;}
+		p { padding:8px 0; }
+		h1 { padding-bottom:10px; }
+		#demo-wrap { width:900px; margin:0 auto; background:#FFF; padding:20px; border:1px solid #CCC;}
+	</style>
+	
+	<link rel="stylesheet" type="text/css" href="tooltips.css" />
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script type="text/javascript" src="tooltips.js"></script>
+	<script type="text/javascript">
+		$(function(e){
+			/* how long before the tooltip times out and then fades out */
+			Tooltips.hide_speed = 1000; // 1000 = 1 second
+			/* how fast fading in/out goes */
+			Tooltips.fade_speed = 'fast';
+			/* additional alignment to position tip bubble at right spot */
+			Tooltips.additional = 10; // pixels
+			/* Enable a CLOSE button */
+			Tooltips.close_button = true;
+			Tooltips.close_button_html = 'Close';
+			/* initialize Tooltips! */
+			Tooltips.init();
+		});
+	</script>
+</head>
+
+<body>
+
+<div id="demo-wrap">
+	<h1>Bring me a challenge. Somebody.</h1>
+	
+	<p>It's perfect. It's awesome. Every day is just filled with just wins. All we do is put wins in the record books. If you love with violence and you hate with violence, there's nothing that can be questioned. People say, 'Oh, you'd better work through your resentments.' Yeah, no. I'm gonna hang on to them, and they're gonna fuel my attack. And they're going to fuel the <a href="http://www.briandichiara.com/#sample1" class="tooltip">battle cry (link+hash)</a>
+	
+		
+		
+	 of my deadly and dangerous and secret and silent soldiers. Because they're all around you. Sorry, you thought you were just messing with one dude. Winning. </p>
+	
+	<p>It's perfect. It's awesome. Every day is just filled with <a href="sample5.html" class="tooltip">just wins</a>. All we do is put wins in the record books. We win so radically in our underwear before our first cup of coffee, it's scary. People say it's lonely at the top, but I sure like the view. </p>
+	
+	<p><a href="http://www.google.com" class="tooltip" rel="#sample4">Look (rel1)</a> what I'm dealing with, man. I'm dealing with <a href="#sample2" class="tooltip">fools and trolls</a>. I'm dealing with soft targets, and it's just strafing runs in my underwear before my first cup of coffee &hellip; they lay down with their ugly wives and their ugly children and just look at their loser lives and then they look at me and say, 'I can't process it.' Well, no, and you never will! Stop trying! Just sit back and enjoy the show. </p>
+	
+	<p>You've read about the goddesses, come on. They're an international sensation. These are my girlfriends. These are the women that I love that have <a href="http://www.apple.com/" class="tooltip" rel="sample3">completed (rel2)</a> the three parts of my heart. </p>
+	
+</div>
+
+
+
+
+<div id="sample1" class="tooltip-content hidden">
+	<img src="sample-image.jpg" class="preview" alt="preview image" />
+	<span class="body">
+		<strong>Non-Contact Position Feedback Cylinders</strong>
+		<em>Amet consectetuer adipiscing elit sed diam nonummy nibh euismo tincidunt ut.</em>
+		<a href="#pdf">Download PDF</a>
+	</span>
+</div>
+
+<div id="sample2" class="tooltip-content hidden">
+	<img src="sample-image.jpg" class="preview" alt="preview image" />
+	<span class="body">
+		<strong>Non-Contact Position Feedback Cylinders</strong>
+		<em>Amet consectetuer adipiscing elit sed diam nonummy nibh euismo tincidunt ut.</em>
+		<a href="#pdf">Download PDF</a>
+	</span>
+</div>
+
+<div id="sample3" class="tooltip-content hidden">
+	<img src="sample-image.jpg" class="preview" alt="preview image" />
+	<span class="body">
+		<strong>Non-Contact Position Feedback Cylinders</strong>
+		<em>Amet consectetuer adipiscing elit sed diam nonummy nibh euismo tincidunt ut.</em>
+		<a href="#pdf">Download PDF</a>
+	</span>
+</div>
+
+<div id="sample4" class="tooltip-content hidden">
+	<img src="sample-image.jpg" class="preview" alt="preview image" />
+	<span class="body">
+		<strong>Non-Contact Position Feedback Cylinders</strong>
+		<em>Amet consectetuer adipiscing elit sed diam nonummy nibh euismo tincidunt ut.</em>
+		<a href="#pdf">Download PDF</a>
+	</span>
+</div>
+
+</body>
+</html>
